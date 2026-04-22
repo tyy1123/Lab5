@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>田玉颖个人简历表单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fff5f8;
+            font-family: "SimHei", sans-serif;
+            min-height: 100vh;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .resume {
+            max-width: 1000px;
+            width: 90%;
+            border: 1px solid #f29cbd;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #e66796;
+            padding: 15px;
+            border-bottom: 1px solid #f29cbd;
+            background: #fff;
+        }
+
+        .top {
+            display: flex;
+            border-bottom: 1px solid #f29cbd;
+        }
+
+        .top-left {
+            flex: 1;
+        }
+
+        .top-right {
+            width: 120px;
+            border-left: 1px solid #f29cbd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .row {
+            display: flex;
+            border-bottom: 1px solid #f29cbd;
+            align-items: center;
+        }
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            width: 120px;
+            padding: 12px;
+            font-weight: bold;
+            background: #fef0f5;
+            border-right: 1px solid #f29cbd;
+        }
+
+        .text {
+            flex: 1;
+            padding: 8px 12px;
+            border-right: 1px solid #f29cbd;
+        }
+
+        input, select, textarea {
+            width: 95%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-family: inherit;
+        }
+
+        #age {
+            width: 60px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .radio-group input {
+            width: auto;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .full-text {
+            flex: 1;
+            padding: 12px;
+            line-height: 1.7;
+        }
+
+        .btn-box {
+            text-align: center;
+            padding: 15px;
+            border-top: 1px solid #f29cbd;
+        }
+        .submit-btn {
+            padding: 8px 30px;
+            background: #e66796;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background: #d44d80;
+        }
+
+        .fixed-ad {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 200px;
+            height: 250px;
+            background: #fff;
+            border: 2px solid #e66796;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+        .ad-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e66796;
+            margin-bottom: 10px;
+        }
+        .ad-content {
+            text-align: center;
+            padding: 0 15px;
+            line-height: 1.6;
+            color: #666;
+        }
+        .ad-close {
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            font-size: 16px;
+            color: #999;
+            cursor: pointer;
+        }
+        .ad-close:hover {
+            color: #e66796;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="resume" method="post" enctype="multipart/form-data">
+        <div class="title">个人简历表单</div>
+
+        <div class="top">
+            <div class="top-left">
+                <div class="row">
+                    <div class="label">◇ 姓名</div>
+                    <div class="text">
+                        <input type="text" name="username" placeholder="请输入姓名" required>
+                    </div>
+                    <div class="label">◇ 性别</div>
+                    <div class="text">
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender" value="男" checked>男</label>
+                            <label><input type="radio" name="gender" value="女">女</label>
+                        </div>
+                    </div>
+                    <div class="label">◇ 年龄</div>
+                    <div class="text">
+                        <input type="text" name="age" id="age" maxlength="2" placeholder="年龄" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="label">◇ 籍贯</div>
+                    <div class="text">
+                        <input type="text" name="address" placeholder="请输入籍贯">
+                    </div>
+                    <div class="label">◇ 电话</div>
+                    <div class="text">
+                        <input type="text" name="phone" placeholder="请输入手机号">
+                    </div>
+                    <div class="label">◇ 邮箱</div>
+                    <div class="text">
+                        <input type="email" name="email" placeholder="请输入邮箱">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="label">◇ 学历</div>
+                    <div class="text">
+                        <select name="education">
+                            <option value="研究生">研究生</option>
+                            <option value="本科" selected>本科</option>
+                        </select>
+                    </div>
+                    <div class="label">◇ 健康</div>
+                    <div class="text">
+                        <select name="health">
+                            <option value="良好">良好</option>
+                            <option value="一般">一般</option>
+                            <option value="较差">较差</option>
+                        </select>
+                    </div>
+                    <div class="label">◇ 婚姻</div>
+                    <div class="text">
+                        <div class="radio-group">
+                            <label><input type="radio" name="marry" value="未婚" checked>未婚</label>
+                            <label><input type="radio" name="marry" value="已婚">已婚</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="label">◇ 求职意向</div>
+                    <div class="text">
+                        <select name="job" multiple size="1">
+                            <option value="前端开发">前端开发</option>
+                            <option value="后端开发">后端开发</option>
+                            <option value="测试工程师">测试工程师</option>
+                            <option value="产品经理">产品经理</option>
+                        </select>
+                    </div>
+                    <div class="label">◇ 专业</div>
+                    <div class="text">
+                        <select name="major">
+                            <option value="计算机科学与技术">计算机科学与技术</option>
+                            <option value="软件工程">软件工程</option>
+                            <option value="网络工程">网络工程</option>
+                            <option value="人工智能">人工智能</option>
+                            <option value="网络安全">网络安全</option>
+                        </select>
+                    </div>
+                    <div class="label">◇ 院系</div>
+                    <div class="text">
+                        <select name="department">
+                            <option value="信息工程学院">信息工程学院</option>
+                            <option value="建筑工程学院">建筑工程学院</option>
+                            <option value="国际教育学院">国际教育学院</option>
+                            <option value="食品与生物工程学院">食品与生物工程学院</option>
+                            <option value="机电工程学院">机电工程学院</option>
+                            <option value="文法学院">文法学院</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top-right">
+                <input type="file" name="photo" accept="image/*">
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="row">
+                <div class="label">技能证书</div>
+                <div class="full-text">
+                    <textarea name="cert" placeholder="请输入技能证书"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">个人特长</div>
+                <div class="full-text">
+                    <textarea name="skill" placeholder="请输入个人特长"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">项目经历</div>
+                <div class="full-text">
+                    <textarea name="project" placeholder="请输入项目经历"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">自我评价</div>
+                <div class="full-text">
+                    <textarea name="evaluate" placeholder="请输入自我评价"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-box">
+            <button type="submit" class="submit-btn">提交简历</button>
+        </div>
+    </form>
+</body>
+</html>
